@@ -1,0 +1,19 @@
+{
+  "name": "find-all-places-nearby",
+  "version": "1.0.0",
+  "description": "Find veterinarian shops within 5 miles using Google Maps API",
+  "main": "findVets.js",
+  "scripts": {
+    "start": "node findVets.js",
+    "names": "node saveVetNames.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "@googlemaps/google-maps-services-js": "^3.3.42",
+    "node-fetch": "^2.6.7"
+  },
+  "keywords": ["google-maps", "veterinarian", "places", "search"],
+  "author": "",
+  "license": "MIT"
+} 

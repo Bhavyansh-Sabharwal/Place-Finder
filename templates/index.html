@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-2xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Place Finder</h1>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <form id="searchForm" class="space-y-4">
+                    <div>
+                        <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                        <input type="text" id="address" name="address" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Enter your address">
+                    </div>
+                    
+                    <div>
+                        <label for="distance" class="block text-sm font-medium text-gray-700">Distance (miles)</label>
+                        <input type="number" id="distance" name="distance" required min="1" max="50"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="Enter distance in miles">
+                    </div>
+                    
+                    <div>
+                        <label for="place_type" class="block text-sm font-medium text-gray-700">Place Type</label>
+                        <input type="text" id="place_type" name="place_type" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            placeholder="e.g., veterinary_care">
+                    </div>
+                    
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Search
+                    </button>
+                </form>
+            </div>
+
+            <div id="results" class="mt-8 hidden">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Results</h2>
+                    <div id="resultsContent" class="space-y-4">
+                        <!-- Results will be displayed here -->
+                    </div>
+                    <div id="downloadSection" class="mt-4 hidden">
+                        <a id="downloadLink" href="#" 
+                            class="inline-block bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                            Download CSV
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="hidden mt-8">
+                <div class="flex items-center justify-center">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                    <span class="ml-3 text-gray-700">Searching...</span>
+                </div>
+            </div>
+
+            <div id="error" class="hidden mt-8">
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                    <span id="errorMessage" class="block sm:inline"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
