@@ -80,5 +80,8 @@ wheels/
 *.egg
 MANIFEST
 
+# Data files
 *.csv
+# Exclude requirements.txt as it's needed for Python dependencies
 *.txt
+!requirements.txt
